@@ -1,0 +1,3 @@
+.bulletpoint.list-disc > li::marker {
+  color: #d1d5db;
+}

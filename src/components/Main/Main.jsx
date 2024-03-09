@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Main.css";
 import { ReactComponent as Afterpay } from "../../assets/afterpay.svg";
+import Accordion from "../Accordion/Accordion";
 
 function Main() {
   const [selectedOption, setSelectedOption] = useState(1);
@@ -205,6 +206,109 @@ function Main() {
                       </div>
                     </div>
                   </div>
+
+                  {/* buttons section */}
+                  <div className="w-full mb-10">
+                    <div className="w-full button-black text-white text-center font-medium">
+                      <span>Add to cart</span>
+                    </div>
+
+                    <div className="mt-4">
+                      <div className="button-blue w-full">
+                        <span>Buy with</span>
+                        <span>
+                          <img
+                            src={require("../../assets/shopPay.png")}
+                            alt="shoppay"
+                            className="w-20 ml-[-0.25rem]"
+                          />
+                        </span>
+                      </div>
+                      <div className="more-options">More payment Options</div>
+                    </div>
+                  </div>
+
+                  {/* shipping info */}
+                  <div className="p-8 rounded-[16px] border border-[#22222233] flex flex-col gap-4">
+                    <div className="flex items-center gap-4">
+                      <div className="w-7 h-7">
+                        <img
+                          src="//getvitalplus.com/cdn/shop/files/icon__truck.svg?v=1692576286&amp;width=28"
+                          alt=""
+                          width="28"
+                          height="28"
+                          loading="lazy"
+                          className="w-full h-full"
+                        />
+                      </div>
+                      <div className="flex flex-col md:flex-row md:justify-between flex-grow">
+                        <div className="text-[#222] font-medium">
+                          Free shipping
+                        </div>
+                        <div className="text-[#222]">Ships from Sydney</div>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-4">
+                      <div className="w-7 h-7">
+                        <img
+                          src="//getvitalplus.com/cdn/shop/files/clock_icon_2f4d5cce-cad5-42e8-ad4b-e12593ca4077.svg?v=1693270167&amp;width=28"
+                          alt=""
+                          width="28"
+                          height="28"
+                          loading="lazy"
+                          className="w-full h-full"
+                        />
+                      </div>
+                      <div className="flex flex-col md:flex-row md:justify-between flex-grow">
+                        <div className="text-[#222] font-medium">
+                          Current delivery time
+                        </div>
+                        <div className="text-[#222]">2 - 5 business days</div>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-4">
+                      <div className="w-7 h-7">
+                        <img
+                          src="//getvitalplus.com/cdn/shop/files/box_icon_881c0ace-04b8-4b8e-b276-b266cd41e7de.svg?v=1693270178&amp;width=28"
+                          alt=""
+                          width="28"
+                          height="28"
+                          loading="lazy"
+                          className="w-full h-full"
+                        />
+                      </div>
+                      <div className="flex flex-col md:flex-row md:justify-between flex-grow">
+                        <div className="text-[#222] font-medium">
+                          Easy returns
+                        </div>
+                        <div className="text-[#222]">90 day return policy</div>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-4">
+                      <div className="w-7 h-7">
+                        <img
+                          src="//getvitalplus.com/cdn/shop/files/warranty_cropped.png?v=1699000814&amp;width=300"
+                          alt=""
+                          width="28"
+                          height="28"
+                          loading="lazy"
+                          className="w-full h-full"
+                        />
+                      </div>
+                      <div className="flex flex-col md:flex-row md:justify-between flex-grow">
+                        <div className="text-[#222] font-medium">
+                          Full warranty
+                        </div>
+                        <div className="text-[#222]">1 year full warranty</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* accordian here */}
+                  <Accordion />
                 </div>
               </div>
             </div>
