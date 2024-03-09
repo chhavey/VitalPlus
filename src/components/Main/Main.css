@@ -1,0 +1,36 @@
+.rating {
+  width: 101.854px;
+  height: 18px;
+}
+
+.afterpay {
+  border: 1px solid green;
+}
+.info {
+  border: 1px solid yellow;
+}
+
+.circle {
+  width: 20px;
+  height: 20px;
+  border: 2px solid black;
+  border-radius: 50%;
+  box-sizing: border-box;
+  position: relative;
+  flex-shrink: 0;
+  min-width: 20px;
+  cursor: pointer;
+}
+
+.circle.selected:after {
+  content: "";
+  display: block;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: black;
+}
