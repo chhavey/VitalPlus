@@ -1,3 +1,4 @@
+import Main from "../Main/Main";
 import React, { useState, useEffect } from "react";
 import { ReactComponent as Logo } from "../../assets/logo.svg";
 import { ReactComponent as DownArrow } from "../../assets/down.svg";
@@ -5,6 +6,7 @@ import { ReactComponent as Menu } from "../../assets/menu.svg";
 
 function Header() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isSticky, setIsSticky] = useState(true);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -13,6 +15,20 @@ function Header() {
 
     return () => clearInterval(intervalId);
     //eslint-disable-next-line
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 150) {
+        setIsSticky(false);
+      } else {
+        setIsSticky(true);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const slides = [
@@ -34,50 +50,56 @@ function Header() {
           ))}
         </div>
       </div>
-
-      <div className="text-black bg-contrast w-full leading-none px-6 py-8 flex justify-between items-center gap-4 md:gap-8 md:px-12 lg:py-[0px]">
-        <div className="flex items-center gap-12 w-full lg:w-auto">
-          <a
-            href="/"
-            className="self-stretch flex-grow md:leading-[4rem] inline w-auto h-auto leading-none"
-            style={{ width: "6.25rem" }}
-          >
-            <Logo />
-          </a>
-        </div>
-
-        <div className="hidden lg:flex gap-8 text-sm uppercase font-semibold py-10">
-          <div className="group flex items-center gap-1 font-bold" href="#">
-            <span>Sauna</span>
-            <DownArrow />
-          </div>
-          <div className="group flex items-center gap-1 font-bold" href="#">
-            <span>Ice Bath</span>
-            <DownArrow />
-          </div>
-          <div className="group flex items-center gap-1 font-bold" href="#">
-            <span>Bundle & Save</span>
-            <DownArrow />
-          </div>
-          <div className="group flex items-center gap-1 font-bold" href="#">
-            <span>Resources</span>
-            <DownArrow />
-          </div>
-        </div>
-
-        <div className="flex items-center justify-end w-full gap-6 lg:gap-1 lg:w-auto">
-          <div className="relative flex cursor-pointer items-center justify-center ">
-            <a href="/cart">
-              <h1 class="text-xs md:text-sm font-bold uppercase duration-300">
-                Cart (0)
-              </h1>
+      <div
+        className={`${
+          isSticky ? "sticky top-8" : ""
+        } z-10 bg-white transition-all duration-500`}
+      >
+        <div className="text-black bg-contrast w-full leading-none px-6 py-8 flex justify-between items-center gap-4 md:gap-8 md:px-12 lg:py-[0px]">
+          <div className="flex items-center gap-12 w-full lg:w-auto">
+            <a
+              href="/"
+              className="self-stretch flex-grow md:leading-[4rem] inline w-auto h-auto leading-none"
+              style={{ width: "6.25rem" }}
+            >
+              <Logo />
             </a>
           </div>
-          <div className="flex items-center justify-start gap-4 lg:hidden">
-            <Menu />
+
+          <div className="hidden lg:flex gap-8 text-sm uppercase font-bold py-10">
+            <div className="group flex items-center gap-1 font-bold" href="#">
+              <span>Sauna</span>
+              <DownArrow />
+            </div>
+            <div className="group flex items-center gap-1 font-bold" href="#">
+              <span>Ice Bath</span>
+              <DownArrow />
+            </div>
+            <div className="group flex items-center gap-1 font-bold" href="#">
+              <span>Bundle & Save</span>
+              <DownArrow />
+            </div>
+            <div className="group flex items-center gap-1 font-bold" href="#">
+              <span>Resources</span>
+              <DownArrow />
+            </div>
+          </div>
+
+          <div className="flex items-center justify-end w-full gap-6 lg:gap-1 lg:w-auto">
+            <div className="relative flex cursor-pointer items-center justify-center ">
+              <a href="/cart">
+                <h1 className="text-xs md:text-sm font-bold uppercase duration-300">
+                  Cart (0)
+                </h1>
+              </a>
+            </div>
+            <div className="flex items-center justify-start gap-4 lg:hidden">
+              <Menu />
+            </div>
           </div>
         </div>
       </div>
+      <Main />
     </div>
   );
 }

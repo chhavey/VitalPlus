@@ -114,7 +114,7 @@ const Accordion = () => {
       {accordionData.map((item, index) => (
         <div className="py-6 border-b-2 border-[#e5e7eb]" key={index}>
           <div
-            className="flex justify-between md:text-2xl font-medium text-[18px] w-full"
+            className="cursor-pointer flex justify-between md:text-2xl font-medium text-[18px] w-full"
             onClick={() => toggleAccordion(index)}
           >
             <span>{item.title}</span>

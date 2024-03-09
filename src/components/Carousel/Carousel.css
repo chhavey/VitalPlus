@@ -1,0 +1,10 @@
+.thumbnail-viewport {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+.thumbnail-viewport::-webkit-scrollbar {
+  display: none;
+}

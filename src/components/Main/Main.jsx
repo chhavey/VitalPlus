@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Main.css";
 import { ReactComponent as Afterpay } from "../../assets/afterpay.svg";
 import Accordion from "../Accordion/Accordion";
+import Carousel from "../Carousel/Carousel";
 
 function Main() {
   const [selectedOption, setSelectedOption] = useState(1);
@@ -11,28 +12,21 @@ function Main() {
   };
 
   return (
-    <div className="md:mt-8">
+    <div className="md:mt-8 mb-10">
       <div className="grid w-full gap-4 border-none px-0 md:gap-8 md:px-20 lg:px-24 2xl:px-48">
         <div className="flex w-full md:justify-between flex-row gap-4 md:min-h-screen">
-          {/* left side div */}
           <div className="md:basis-[45%] md:flex-col hidden md:flex sticky h-fit md:top-10">
-            <div className="w-full flex-col flex gap-4 items-center h-full">
-              {/* implement carousel here  with same style and functionality */}
-              carousel
-            </div>
+            <Carousel />
           </div>
 
-          {/* right side div */}
           <div className="md:min-h-screen basis-full md:basis-[45%]">
             <div className="flex flex-col gap-2 md:pt-0 md:mx-auto md:px-0 sticky md:top-0">
               <div className="p-3 md:p-4">
                 <div className="grid gap-2">
-                  {/* heading saunapod */}
                   <div className=" md:text-[64px] md:leading-[72px] font-medium text-[28px]">
                     SaunaPod
                   </div>
 
-                  {/* rating */}
                   <div className="flex gap-2 items-center justify-start text-lg mt-[-0.5rem]">
                     {/* <div className="lg:flex gap-2 items-center justify-start"> */}
                     <img
@@ -50,7 +44,6 @@ function Main() {
                     </div>
                   </div>
 
-                  {/* price related */}
                   <div className="price flex items-center mb-10mb-0 text-[18px] md:text-2xl font-medium mt-[-0.5rem]">
                     <span className="sr-only opacity-40 mr-2">Sale price</span>
                     <s className="strike opacity-30 mr-1">$695</s>
@@ -60,7 +53,6 @@ function Main() {
                     </span>
                   </div>
 
-                  {/* next line afterpay */}
                   <div className="flex items-center text-sm flex-wrap mt-[-0.7rem]">
                     <span>or 4 interest-free payments of&nbsp;</span>
                     <strong>$98.75</strong>
@@ -71,10 +63,10 @@ function Main() {
                     <span>&nbsp;ⓘ</span>
                   </div>
 
-                  {/* show carousel here when mobile screen is there */}
-                  <div className="sm:block md:hidden">carousel</div>
+                  <div className="sm:block md:hidden">
+                    <Carousel />
+                  </div>
 
-                  {/*biggest sale  */}
                   <div className="mt-6 mb-8 md:mt-6 md:mb-10">
                     <div>
                       <h2 style={{ textAlign: "center" }}>
@@ -101,7 +93,6 @@ function Main() {
                     </div>
                   </div>
 
-                  {/* toggle box */}
                   <div>
                     <p className="text-left pb-2">Purchase options</p>
                     <div
@@ -207,7 +198,6 @@ function Main() {
                     </div>
                   </div>
 
-                  {/* buttons section */}
                   <div className="w-full mb-10">
                     <div className="w-full button-black text-white text-center font-medium">
                       <span>Add to cart</span>
@@ -228,7 +218,6 @@ function Main() {
                     </div>
                   </div>
 
-                  {/* shipping info */}
                   <div className="p-8 rounded-[16px] border border-[#22222233] flex flex-col gap-4">
                     <div className="flex items-center gap-4">
                       <div className="w-7 h-7">
@@ -307,7 +296,6 @@ function Main() {
                     </div>
                   </div>
 
-                  {/* accordian here */}
                   <Accordion />
                 </div>
               </div>
